@@ -7,4 +7,7 @@
     <string name="nav_davis_title">Davis</string>
     <string name="davis">Davis</string>
     <string name="back_button">Back</string>
+    <string name="current_weather">Current Weather</string>
+    <string name="nav_hmc_title">HMC Weather</string>
+    <string name="hmc">HMC</string>
 </resources>
