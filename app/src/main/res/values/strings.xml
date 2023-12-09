@@ -10,4 +10,5 @@
     <string name="current_weather">Current Weather</string>
     <string name="nav_hmc_title">HMC Weather</string>
     <string name="hmc">HMC</string>
+    <string name="trafalgar">Trafalgar</string>
 </resources>
