@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import ca.suthakaran.weather.R
 import ca.suthakaran.weather.ui.navigation.DavisDestination
 import ca.suthakaran.weather.ui.navigation.TrafDestination
-import ca.suthakaran.weather.ui.navigation.WeatherDestination
+import ca.suthakaran.weather.ui.navigation.HmcDestination
 
 
 private data class NavigationItemContent(
@@ -32,9 +32,9 @@ fun WeatherBottomBar(
 ) {
     val navigationItemContentList = listOf(
         NavigationItemContent(
-            route = WeatherDestination.route,
+            route = HmcDestination.route,
             icon = Icons.Default.Home,
-            text = stringResource(id = R.string.weather)
+            text = stringResource(id = R.string.hmc)
         ),
         NavigationItemContent(
             route = TrafDestination.route,
