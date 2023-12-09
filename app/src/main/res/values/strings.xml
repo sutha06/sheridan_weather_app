@@ -11,4 +11,7 @@
     <string name="nav_hmc_title">HMC Weather</string>
     <string name="hmc">HMC</string>
     <string name="trafalgar">Trafalgar</string>
+    <string name="davis_weather">Davis Weather</string>
+    <string name="nav_davs_title">Davis Weather</string>
+    <string name="nav_trafs_title">Trafalgar Weather</string>
 </resources>
