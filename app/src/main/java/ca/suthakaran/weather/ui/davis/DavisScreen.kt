@@ -39,7 +39,6 @@ fun DavisScreen(
             WeatherTopAppBar(
                 title = stringResource(DavisDestination.titleRes),
                 canNavigateBack = true,
-                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },
@@ -58,7 +57,7 @@ fun DavisScreen(
                 .padding(top = 56.dp)
         ){
             Text(
-                text = stringResource(R.string.current_weather),
+                text = stringResource(R.string.davis),
                 fontSize = 24.sp,
                 modifier = Modifier.padding(bottom = 16.dp)
             )

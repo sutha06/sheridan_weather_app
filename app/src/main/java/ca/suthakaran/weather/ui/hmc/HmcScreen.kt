@@ -53,7 +53,7 @@ fun HmcScreen(
                 .padding(top = 56.dp)
         ){
             Text(
-                text = stringResource(R.string.nav_hmc_title),
+                text = stringResource(R.string.hmc),
                 fontSize = 24.sp,
                 modifier = Modifier.padding(bottom = 16.dp)
             )

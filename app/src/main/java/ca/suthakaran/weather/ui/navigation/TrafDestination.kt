@@ -4,5 +4,5 @@ import ca.suthakaran.weather.R
 
 object TrafDestination: NavDestination {
     override val route: String = "Trafalgar"
-    override val titleRes: Int = R.string.nav_traf_title
+    override val titleRes: Int = R.string.nav_trafs_title
 }
