@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="nav_weather_title">Weather</string>
+    <string name="weather">Weather</string>
+    <string name="nav_traf_title">Traf</string>
+    <string name="traf">Traf</string>
+    <string name="nav_davis_title">Davis</string>
+    <string name="davis">Davis</string>
+</resources>
