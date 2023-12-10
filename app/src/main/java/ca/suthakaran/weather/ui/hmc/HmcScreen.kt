@@ -1,23 +1,28 @@
 package ca.suthakaran.weather.ui.hmc
 
+
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import ca.suthakaran.weather.ui.common.DefaultText
+import ca.suthakaran.weather.ui.common.DisplayError
+import ca.suthakaran.weather.ui.common.DisplayVisual
 import ca.suthakaran.weather.ui.common.WeatherBottomBar
+import ca.suthakaran.weather.ui.common.WeatherGrabBtn
 import ca.suthakaran.weather.ui.common.WeatherTopAppBar
 import ca.suthakaran.weather.ui.navigation.HmcDestination
-import ca.suthakaran.weather.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,8 +31,11 @@ fun HmcScreen(
     onTabPressed: (String) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val apiState = viewModel.apiState.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val errorState by viewModel.errorState.collectAsState()
 
     Scaffold(modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
@@ -45,20 +53,28 @@ fun HmcScreen(
             )
         }
     ) { innerPadding ->
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier
+        Box(
+            contentAlignment = Alignment.Center, // Center content horizontally and vertically
+            modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxWidth()
-                .padding(top = 56.dp)
-        ){
-            Text(
-                text = stringResource(R.string.hmc),
-                fontSize = 24.sp,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-
+                .fillMaxSize() // Fill the entire available space
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (errorState) { // Display error message if error state is true
+                    DisplayError()
+                } else {
+                    val weatherData = apiState.value
+                    if (weatherData != null) {
+                        DisplayVisual(weatherData)
+                    } else {
+                        DefaultText("hmc")
+                    }
+                }
+                WeatherGrabBtn(isLoading, viewModel::grabApiData)
+            }
         }
     }
-
 }
