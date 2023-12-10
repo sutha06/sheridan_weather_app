@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ReposApi {
-    @GET("weather") // Endpoint relative to the base URL
+    @GET("weather")
     suspend fun getRepos(
         @Query("q") location: String,
 

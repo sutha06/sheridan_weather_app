@@ -54,16 +54,16 @@ fun HmcScreen(
         }
     ) { innerPadding ->
         Box(
-            contentAlignment = Alignment.Center, // Center content horizontally and vertically
+            contentAlignment = Alignment.Center,
             modifier = Modifier
                 .padding(innerPadding)
-                .fillMaxSize() // Fill the entire available space
+                .fillMaxSize()
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                if (errorState) { // Display error message if error state is true
+                if (errorState) {
                     DisplayError()
                 } else {
                     val weatherData = apiState.value
