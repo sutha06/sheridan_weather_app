@@ -34,7 +34,7 @@ class DavisViewModel @Inject constructor(
             try {
                 _isLoading.value = true // S
 
-                val weatherData = repoApi.getRepos("Brampton,ca", "metric", "017f04360d19b1fcc3ca93c3594269e0")
+                val weatherData = repoApi.getRepos("Brampton,ca", "metric", "7a5c54cc510975778d1e6e164fbcfa47")
 
                 val temperature = weatherData.main.temperature
                 val weatherCondition = weatherData.weather.firstOrNull()?.main ?: ""
